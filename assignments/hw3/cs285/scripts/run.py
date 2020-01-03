@@ -5,12 +5,12 @@ import os
 ## Q1
 os.system("python run_hw3_dqn.py --env_name PongNoFrameskip-v4 -gpu --exp_name q1")
 
-## Q2
-for i in range(1, 4):
-    os.system(f"python run_hw3_dqn.py --env_name LunarLander-v2 -gpu --exp_name q2_dqn_{i} --seed {i}")
+# ## Q2
+# for i in range(1, 4):
+#     os.system(f"python run_hw3_dqn.py --env_name LunarLander-v2 -gpu --exp_name q2_dqn_{i} --seed {i}")
 
-for i in range(1, 4):
-    os.system(f"python run_hw3_dqn.py --env_name LunarLander-v2 -gpu --exp_name q2_doubledqn_{i} --double_q --seed {i}")
+# for i in range(1, 4):
+#     os.system(f"python run_hw3_dqn.py --env_name LunarLander-v2 -gpu --exp_name q2_doubledqn_{i} --double_q --seed {i}")
 
 ## Q3
 os.system("python run_hw3_dqn.py --env_name PongNoFrameskip-v4 -gpu --double_q --exp_name q3_hparam1")
