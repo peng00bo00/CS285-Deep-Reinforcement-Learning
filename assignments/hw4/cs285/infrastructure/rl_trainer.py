@@ -92,7 +92,7 @@ class RL_Trainer(object):
         else:
             self.fps = 10
 
-            #############
+        #############
         ## AGENT
         #############
 

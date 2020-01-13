@@ -9,7 +9,7 @@ class MBAgent(BaseAgent):
     def __init__(self, sess, env, agent_params):
         super(MBAgent, self).__init__()
 
-        self.env = env.unwrapped 
+        self.env = env.unwrapped
         self.sess = sess
         self.agent_params = agent_params
         self.ensemble_size = self.agent_params['ensemble_size']

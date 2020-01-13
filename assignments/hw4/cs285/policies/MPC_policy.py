@@ -55,13 +55,19 @@ class MPCPolicy(BasePolicy):
             # for each candidate action sequence, predict a sequence of
             # states for each dynamics model in your ensemble
             observations = np.tile(obs, [self.N, 1])
+            rewards = np.zeros(self.N)
+
             for i in range(self.horizon):
-                observations = model.get_prediction(observations, candidate_action_sequences[:, i,:], self.data_statistics)            
+                next_observations = model.get_prediction(observations, candidate_action_sequences[:, i, :], self.data_statistics)
 
             # once you have a sequence of predicted states from each model in your
             # ensemble, calculate the reward for each sequence using self.env.get_reward (See files in envs to see how to call this)
-                r_total, dones = self.env.get_reward(observations, candidate_action_sequences[:, i,:])
-                predicted_rewards_per_ens.append(r_total)
+                r_total, dones = self.env.get_reward(observations, candidate_action_sequences[:, i, :])
+                rewards += r_total
+
+                observations = next_observations
+            
+            predicted_rewards_per_ens.append(rewards)
 
         # calculate mean_across_ensembles(predicted rewards).
         # the matrix dimensions should change as follows: [ens,N] --> N

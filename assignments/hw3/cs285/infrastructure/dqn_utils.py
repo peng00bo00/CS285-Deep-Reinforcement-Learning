@@ -5,10 +5,10 @@ from collections import namedtuple
 
 import gym
 import numpy as np
-#import tensorflow as tf
+# import tensorflow as tf
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
-#import tensorflow.contrib.layers as layers
+# import tensorflow.contrib.layers as layers
 
 from cs285.infrastructure.atari_wrappers import wrap_deepmind
 
